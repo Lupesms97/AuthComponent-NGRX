@@ -1,0 +1,40 @@
+.container {
+  max-width: 100%;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.message-container {
+  max-height: 50%;
+  overflow-y: auto;
+}
+
+.alert {
+  margin-bottom: 10px;
+  word-wrap: break-word; /* Quebra de linha para mensagens longas */
+}
+
+/* Estilo para mensagens enviadas (à direita) */
+.sent {
+  border: 2px solid  #007bff;
+  color: black;
+  text-align: right;
+  margin-left: auto;
+  border-radius: 2rem;
+  border-top-right-radius: 0;
+}
+
+/* Estilo para mensagens recebidas (à esquerda) */
+.received {
+  border: 1px solid  green;
+  color: #333;
+  text-align: left;
+  margin-right: auto;
+  border-radius: 2rem;
+  border-top-left-radius: 0;
+}
+
+
+.input-group {
+  margin-top: 10px;
+}

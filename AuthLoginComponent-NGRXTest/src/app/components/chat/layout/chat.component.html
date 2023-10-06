@@ -1,0 +1,40 @@
+<nav class="navbar navbar-expand-lg bg-body-tertiary">
+    <div class="container-fluid">
+      
+      <button class="btn btn-outline-primary me-2" routerLink="../admin" type="button">Voltar</button>
+  
+      <div class="ms-auto">
+        <span class="navbar-text text-black">
+          {{username}}
+        </span>
+      </div>
+    </div>
+</nav>
+<div class="container">
+    <div class="message-container w-100" #messageContainer>
+      <div *ngFor="let received of receivedMessages" [class.sent]="received.sender === username" [class.received]="received.sender !== username" class="alert">
+        {{ received.content }}
+      </div>
+    </div>
+    <div class="message-container w-100" #messageContainer>
+        <div *ngFor="let message of sendMessages" [class.sent]="message.sender === username" [class.received]="message.sender !== username" class="alert">
+          {{ message.content }}
+        </div>
+      </div>
+    <div class="input-group fixed-bottom justify-content-around mb-5">
+        <form (ngSubmit)="onSendMessage()" #message="ngForm">
+            <div class="row">
+                <div class="col-9">
+                    <input type="text" class="form-control" placeholder="Digite sua mensagem" name="messageText" [(ngModel)]="messageText" required>
+                    
+                </div>
+                <div class="col-3">
+                    <button class="btn btn-outline-primary" type="submit">Enviar</button>
+                </div>
+
+            </div>
+        </form>
+    </div>
+  </div>
+  
+  

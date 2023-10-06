@@ -1,0 +1,55 @@
+<div class="container-fluid" id="container">
+    <ng-container *ngIf="exibirAlert" >
+        <div class="alert alert-success alert-dismissible fade show w-50 mx-auto" role="alert" >
+            <p>{{alertMessage}}</p>
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    </ng-container>
+    <div class="container">
+        <div class="col bg-light p-5 mx-auto containerLogin" >
+           <form #loginForm="ngForm" (ngSubmit)="autenticar(loginForm)">
+                <div class="row text-center">
+                    <h3 id="title">
+                        Login
+                    </h3>
+                </div>
+                <div class="form-group my-4 ">
+                    <label class="form-control-label ">Email</label>
+                    <input 
+                    type="text"
+                    class="form-control"
+                    name="login"
+                    [(ngModel)]="user.login"
+                    required 
+                    #login="ngModel"
+                    >
+                    <div *ngIf="login.hasError('required') && login.touched " class="alert alert-danger">
+                        <div id="alert-danger">Informe um login</div>
+                    </div> 
+                </div>
+                <div class="form-group">
+                    <label for="inputPassword">Senha</label>
+                    <input 
+                    type="password"
+                    name="password"
+                    class="form-control"
+                    [(ngModel)]="user.password"
+                    required minlength="6"
+                    #password="ngModel"
+                    >
+                    <div *ngIf="password.hasError('minlength') && password.dirty" class="alert alert-danger">
+                        <p>
+                            A senha precisa ter pelo menos 10 digitos
+                        </p>
+                    </div>
+                </div>
+                <div class="row my-4 ">
+                    <a [routerLink]="'/register'" class="newUserLink mx-auto">Novo por aqui?</a>
+                </div>
+                <div class="mt-3 text-center butaoSubmit">
+                    <button class="btn btn-primary w-75" type="submit" [disabled]="!loginForm.valid">Entrar</button>
+                </div>
+           </form>
+        </div>
+    </div>
+</div>

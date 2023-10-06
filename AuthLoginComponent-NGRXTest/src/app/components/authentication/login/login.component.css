@@ -1,0 +1,62 @@
+
+#container{
+    height: 100vh;
+    background-color: #f2f2f2;
+    padding-top: 20vh;
+}
+.containerLogin{
+    width: 50%;
+    border-radius: 2rem;
+}
+.row{
+    margin: 2vh 0 2vh 0
+}
+#title{
+    font-size: 2rem;
+    font-weight: bold;
+    color: #4169E1;
+}
+.pt-10{
+    padding-top: 20vh!important;
+}
+.butaoSubmit{
+    transition: transform 0.2s;
+}
+.butaoSubmit button{
+    height:5vh;
+    cursor: pointer;
+    border-radius: 2rem;
+}
+.butaoSubmit:hover{
+    transform: scale(1.1);
+    font-size:1.1rem;
+}
+
+input.ng-invalid.ng-dirty{
+    border: 2px solid red; /* Cor da borda vermelha para indicar erro */
+    box-shadow: 0 0 10px rgba(255, 0, 0, 0.5); 
+}
+.newUserLink{
+    width:auto;
+    text-decoration: underline;
+    color:#b3b3b3;
+}
+.newUserLink:hover{
+    cursor: pointer;
+    color:  #4169E1;
+}
+@media(max-width: 768px){
+    .containerLogin{
+        width: 100%;
+    }
+    .butaoSubmit button{
+        height: 6vh;
+    }
+    .butaoSubmit{
+        margin-top: 2vh;
+    }
+    .pt-10{
+        padding-top: 10vh!important;
+    }
+}
+    

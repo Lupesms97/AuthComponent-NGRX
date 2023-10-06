@@ -1,0 +1,62 @@
+
+#container{
+    height: auto;
+    background-color: #f2f2f2;
+    padding-top: 10vh;
+    padding-bottom: 10vh;
+}
+.containerLogin{
+    width: 50%;
+    border-radius: 2rem;
+}
+.row{
+    margin: 2vh 0 2vh 0
+}
+.pt-10{
+    padding-top: 20vh!important;
+}
+#title{
+    font-size: 2rem;
+    font-weight: bold;
+    color: #4169E1;
+}
+.butaoSubmit{
+    transition: transform 0.2s;
+}
+.butaoSubmit button{
+    height:5vh;
+    cursor: pointer;
+    border-radius: 2rem;
+}
+.butaoSubmit:hover{
+    transform: scale(1.1);
+    font-size:1.1rem;
+}
+.loginLink{
+    width:auto;
+    text-decoration: underline;
+    color:#b3b3b3;
+}
+.loginLink:hover{
+    cursor: pointer;
+    color:  #4169E1;
+}
+
+input.ng-invalid.ng-dirty{
+    border: 1px solid red;
+}
+@media(max-width: 768px){
+    .containerLogin{
+        width: 100%;
+    }
+    .butaoSubmit button{
+        height: 6vh;
+    }
+    .butaoSubmit{
+        margin-top: 2vh;
+    }
+    .pt-10{
+        padding-top: 10vh!important;
+    }
+}
+    

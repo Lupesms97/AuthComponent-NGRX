@@ -17,12 +17,12 @@
       </div>
     </div>
     <div class="message-container w-100" #messageContainer>
-        <div *ngFor="let message of sendMessages" [class.sent]="message.sender === username" [class.received]="message.sender !== username" class="alert">
+        <div *ngFor="let message of receivedMessages" [class.sent]="message.sender === username" [class.received]="message.sender !== username" class="alert">
           {{ message.content }}
         </div>
       </div>
     <div class="input-group fixed-bottom justify-content-around mb-5">
-        <form (ngSubmit)="onSendMessage()" #message="ngForm">
+        <form (ngSubmit)="sendMessage()" #message="ngForm">
             <div class="row">
                 <div class="col-9">
                     <input type="text" class="form-control" placeholder="Digite sua mensagem" name="messageText" [(ngModel)]="messageText" required>

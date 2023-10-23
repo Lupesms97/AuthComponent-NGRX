@@ -1,6 +1,8 @@
 
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from 'src/app/core/auth/auth.service';
+import { ChatService } from 'src/app/core/chat/chat.service';
+
 
 import { ChatMessage } from 'src/app/shared/models/user/ChatMessage';
 import { MessageType } from 'src/app/shared/models/user/MessageType';
@@ -12,37 +14,37 @@ import { MessageType } from 'src/app/shared/models/user/MessageType';
   styleUrls: ['./chat.component.css']
 })
 export class ChatComponent implements OnInit{
-  username: string = '';
-  messageText: string = '';
+  username: string = "";
+  messageText: string = "";
   receivedMessages: ChatMessage[] = [];
-  sendMessages: ChatMessage[] = [];
 
+  constructor(private chatService: ChatService,
+    private authService:AuthService) {
+      
+    }
 
-  constructor(private authservice: AuthService) {}
+  ngOnInit(): void {
 
-  ngOnInit() {
-    this.username = this.authservice.getUserName();
+    // Conecte-se ao servidor WebSocket ao inicializar o componente
+
+    this.username = this.authService.getUserName();
+    this.chatService.messages.subscribe((message: ChatMessage) => {
+      console.log('Received a message from the server: ', message);
+      this.receivedMessages.push(message);
+    });
+    
+    this.chatService.addUser(this.username);
   }
 
-  
-
-
-  onSendMessage() {
-    let message: ChatMessage = {
+  sendMessage() {
+    const message: ChatMessage = {
       sender: this.username,
-      content: this.messageText,
-      messageType: MessageType.CHAT
+      content: this.messageText
     };
     this.receivedMessages.push(message);
+    this.chatService.sendMessage(message);
+    this.chatService.messages.next(message);
+    console.log('Sent a message to the server: ', message);
   }
-
-  onKeyPress(event: KeyboardEvent): void {
-
-  }
-
-  logout() {
-    // Implemente a lógica de logout, se necessário.
-  }
-
 
 }

@@ -5,7 +5,9 @@ export interface ChatMessage {
 
     content: string;
     sender: string;
-    messageType: MessageType;
+}
 
+export interface ChatMessageWithType extends ChatMessage {
 
+    type: MessageType;
 }
